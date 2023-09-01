@@ -2,10 +2,15 @@ package jesus.de.andrade.elisa.galeriapublica;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -18,6 +23,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
+    static int RESULT_REQUEST_PERMISSION = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +68,58 @@ public class MainActivity extends AppCompatActivity {
     private void checkForPermissions(List<String> permissions){
         List<String> permissionsNotGranted = new ArrayList<>();
 
-        if|(permissionsNotGranted.size > 0)
+        for(String permission : permissions){
+            if (!hasPermission(permission)){
+                permissionsNotGranted.add(permission);
+            }
+        }
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            if(permissionsNotGranted.size() > 0){
+                requestPermissions(permissionsNotGranted.toArray(new String[permissionsNotGranted.size()]), RESULT_REQUEST_PERMISSION);
+            }else{
+                MainViewModel vm = new ViewModelProvider(this).get(MainViewModel.class);
+                int navigationOpSelected = vm.getNavigationOpSelected();
+                bottomNavigationView.setSelectedItemId(navigationOpSelected);
+            }
+        }
+    }
+
+    private boolean hasPermission(String permission) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return ActivityCompat.checkSelfPermission(MainActivity.this,permission) == PackageManager.PERMISSION_GRANTED;
+        }
+        return false;
+    }
+
+    public void OnRequestPermissionsResult(int requestCode,@NonNull String[] permissions,@NonNull int[] grantResults){
+        super.onRequestPermissionsResult(requestCode, permissions,grantResults);
+
+        final List<String> permissionsRejected = new ArrayList<>();
+        if(requestCode == RESULT_REQUEST_PERMISSION){
+
+            for(String permission : permissions){
+                if(!hasPermission(permission)){
+                    permissionsRejected.add(permission);
+                }
+            }
+        }
+
+        if(permissionsRejected.size() > 0){
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                if(shouldShowRequestPermissionRationale(permissionsRejected.get(0))){
+                    new AlertDialog.Builder(MainActivity.this).setMessage("Para usar essa app é preciso conceder essas permissões").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            requestPermissions(permissionsRejected.toArray(new String[permissionsRejected.size()]), RESULT_REQUEST_PERMISSION);
+                        }
+                    }).create().show();
+                }
+            }
+        }
+        else{
+            MainViewModel vm = new ViewModelProvider(this).get(MainViewModel.class);
+            int navigationOpSelected = vm.getNavigationOpSelected();
+            bottomNavigationView.setSelectedItemId(navigationOpSelected);
+        }
     }
 }
