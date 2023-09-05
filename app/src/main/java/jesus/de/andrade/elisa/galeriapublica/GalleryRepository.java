@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,7 +12,10 @@ import android.provider.MediaStore;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import jesus.de.andrade.elisa.galeriapublica.Util.Util;
 
 public class GalleryRepository {
 
@@ -79,10 +83,17 @@ public class GalleryRepository {
                     id
             );
             String name = cursor.getString(nameColumn);
+            int dateAdded = cursor.getInt(nameColumn);
+            int size = cursor.getInt(sizeColumn);
+            Bitmap thumb = Util.getBitmap(context, contentUri, w,h);
+
+            //guardando os valores das colunas e o contentUri (conteúdo da uri) em um objeto local
+
+            //isso representa o arquivo de mídia
+
+            imageDataList.add(new ImageData(contentUri,thumb,name,new Date(dateAdded*1000L), size));
         }
-
-
-        //Falta o return
+        return imageDataList;
     }
 
 
