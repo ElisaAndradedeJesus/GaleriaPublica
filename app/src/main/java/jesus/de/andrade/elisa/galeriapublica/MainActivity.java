@@ -122,4 +122,5 @@ public class MainActivity extends AppCompatActivity {
             bottomNavigationView.setSelectedItemId(navigationOpSelected);
         }
     }
+    // adicionando comentarios apenas por teste
 }
