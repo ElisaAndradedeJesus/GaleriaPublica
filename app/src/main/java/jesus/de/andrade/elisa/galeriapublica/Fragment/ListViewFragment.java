@@ -5,11 +5,18 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.paging.PagingData;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import jesus.de.andrade.elisa.galeriapublica.Auxiliares.ImageData;
+import jesus.de.andrade.elisa.galeriapublica.Auxiliares.ImageDataComparator;
+import jesus.de.andrade.elisa.galeriapublica.Auxiliares.ListAdapter;
 import jesus.de.andrade.elisa.galeriapublica.Auxiliares.MainViewModel;
 import jesus.de.andrade.elisa.galeriapublica.R;
 
@@ -59,7 +66,16 @@ public class ListViewFragment extends Fragment {
     }
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
+        super.onViewCreated(view,savedInstanceState);
+        mViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
+        ListAdapter listAdapter = new ListAdapter(new ImageDataComparator());
+        LiveData<PagingData<ImageData>> liveData = mViewModel.getPageLv();
+        liveData.observe(getViewLifecycleOwner(),new Observer<PagingData<ImageData>>() {
+            @Override
+            public void onChanged(PagingData<ImageData> imageDataPagingData) {
 
+            }
+        });
     }
 
 
