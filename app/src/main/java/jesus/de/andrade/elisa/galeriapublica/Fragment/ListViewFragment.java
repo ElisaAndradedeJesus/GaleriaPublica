@@ -54,10 +54,15 @@ public class ListViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false);
+        view = inflater.inflate(R.layout.fragment_list, container, false);
+        return view;
     }
 
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){}
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
+
+    }
+
+
 
 
 }
