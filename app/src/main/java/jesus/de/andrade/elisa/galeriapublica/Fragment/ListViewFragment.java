@@ -2,12 +2,15 @@ package jesus.de.andrade.elisa.galeriapublica.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import jesus.de.andrade.elisa.galeriapublica.Auxiliares.MainViewModel;
 import jesus.de.andrade.elisa.galeriapublica.R;
 
 /**
@@ -26,6 +29,9 @@ public class ListViewFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private MainViewModel mViewModel;
+    private View view;
+
     public ListViewFragment() {
         // Required empty public constructor
     }
@@ -39,23 +45,10 @@ public class ListViewFragment extends Fragment {
      * @return A new instance of fragment ListFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ListViewFragment newInstance(String param1, String param2) {
-        ListViewFragment fragment = new ListViewFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public static ListViewFragment newInstance() {
+        return new ListViewFragment();
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,4 +56,8 @@ public class ListViewFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_list, container, false);
     }
+
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){}
+
+
 }
