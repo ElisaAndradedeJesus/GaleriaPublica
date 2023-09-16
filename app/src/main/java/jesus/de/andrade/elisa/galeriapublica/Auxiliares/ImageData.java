@@ -1,4 +1,4 @@
-package jesus.de.andrade.elisa.galeriapublica;
+package jesus.de.andrade.elisa.galeriapublica.Auxiliares;
 
 import android.graphics.Bitmap;
 import android.net.Uri;

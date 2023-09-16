@@ -1,4 +1,4 @@
-package jesus.de.andrade.elisa.galeriapublica;
+package jesus.de.andrade.elisa.galeriapublica.Auxiliares;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import jesus.de.andrade.elisa.galeriapublica.R;
 import jesus.de.andrade.elisa.galeriapublica.Util.Util;
 
 public class GalleryRepository {

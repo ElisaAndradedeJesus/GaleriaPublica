@@ -1,4 +1,4 @@
-package jesus.de.andrade.elisa.galeriapublica;
+package jesus.de.andrade.elisa.galeriapublica.Fragment;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import jesus.de.andrade.elisa.galeriapublica.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ListViewFragment#newInstance} factory method to
+ * Use the {@link GridViewFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListViewFragment extends Fragment {
+public class GridViewFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class ListViewFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ListViewFragment() {
+    public GridViewFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class ListViewFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ListFragment.
+     * @return A new instance of fragment GridFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ListViewFragment newInstance(String param1, String param2) {
-        ListViewFragment fragment = new ListViewFragment();
+    public static GridViewFragment newInstance(String param1, String param2) {
+        GridViewFragment fragment = new GridViewFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class ListViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false);
+        return inflater.inflate(R.layout.fragment_grid, container, false);
     }
 }

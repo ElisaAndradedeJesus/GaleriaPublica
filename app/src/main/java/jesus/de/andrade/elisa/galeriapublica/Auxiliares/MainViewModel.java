@@ -1,4 +1,4 @@
-package jesus.de.andrade.elisa.galeriapublica;
+package jesus.de.andrade.elisa.galeriapublica.Auxiliares;
 
 import android.app.Application;
 
@@ -11,6 +11,10 @@ import androidx.paging.PagingConfig;
 import androidx.paging.PagingData;
 import androidx.paging.PagingLiveData;
 
+import jesus.de.andrade.elisa.galeriapublica.Auxiliares.GalleryPagingSource;
+import jesus.de.andrade.elisa.galeriapublica.Auxiliares.GalleryRepository;
+import jesus.de.andrade.elisa.galeriapublica.Auxiliares.ImageData;
+import jesus.de.andrade.elisa.galeriapublica.R;
 import kotlinx.coroutines.CoroutineScope;
 
 public class MainViewModel extends AndroidViewModel {

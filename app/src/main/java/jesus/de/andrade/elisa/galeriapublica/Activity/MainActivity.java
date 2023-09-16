@@ -1,4 +1,4 @@
-package jesus.de.andrade.elisa.galeriapublica;
+package jesus.de.andrade.elisa.galeriapublica.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +19,11 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import jesus.de.andrade.elisa.galeriapublica.Auxiliares.MainViewModel;
+import jesus.de.andrade.elisa.galeriapublica.R;
+import jesus.de.andrade.elisa.galeriapublica.Fragment.GridViewFragment;
+import jesus.de.andrade.elisa.galeriapublica.Fragment.ListViewFragment;
 
 public class MainActivity extends AppCompatActivity {
 
