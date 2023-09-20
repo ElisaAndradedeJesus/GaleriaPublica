@@ -30,7 +30,7 @@ public class MainViewModel extends AndroidViewModel {
         //linha 11
         CoroutineScope viewModelScope = ViewModelKt.getViewModelScope(this);
 
-        pageLv = PagingData.cachedIn(PagingLiveData.getLiveData(pager), viewModelScope);
+        pageLv = PagingData.cacredIn(PagingLiveData.getLiveData(pager), viewModelScope);
     }
 
     public LiveData<PagingData<ImageData>> getPageLv(){

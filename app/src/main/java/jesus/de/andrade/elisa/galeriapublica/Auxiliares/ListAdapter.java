@@ -18,8 +18,8 @@ import kotlinx.coroutines.CoroutineDispatcher;
 public class ListAdapter extends PagingDataAdapter<ImageData,MyViewHolder> {
 
 
-    public ListAdapter(@NonNull DiffUtil.ItemCallback<ImageData> diffCallback, @NonNull CoroutineDispatcher mainDispatcher) {
-        super(diffCallback, mainDispatcher);
+    public ListAdapter(@NonNull DiffUtil.ItemCallback<ImageData> diffCallback) {
+        super(diffCallback);
     }
 
     @NonNull

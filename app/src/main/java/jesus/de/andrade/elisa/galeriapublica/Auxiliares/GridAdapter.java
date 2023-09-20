@@ -14,8 +14,8 @@ import jesus.de.andrade.elisa.galeriapublica.R;
 import kotlinx.coroutines.CoroutineDispatcher;
 
 public class GridAdapter extends PagingDataAdapter<ImageData,MyViewHolder> {
-    public GridAdapter(@NonNull DiffUtil.ItemCallback<ImageData> diffCallback, @NonNull CoroutineDispatcher mainDispatcher) {
-        super(diffCallback, mainDispatcher);
+    public GridAdapter(@NonNull DiffUtil.ItemCallback<ImageData> diffCallback) {
+        super(diffCallback);
     }
 
     @NonNull
