@@ -59,4 +59,7 @@ public class GridViewFragment extends Fragment {
         rvGallery.setAdapter(gridAdapter);
         rvGallery.setLayoutManager(new GridLayoutManager(getContext(), 3));
     }
+    private int NumberOfColumns(){
+        return 0;
+    }
 }
