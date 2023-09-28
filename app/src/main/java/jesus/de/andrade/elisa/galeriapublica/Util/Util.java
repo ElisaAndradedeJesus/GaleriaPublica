@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import jesus.de.andrade.elisa.galeriapublica.Fragment.GridViewFragment;
+
 public class Util {
     /**
      * Calcula o numero de colunas que cabem na tela ao usar o tipo de
@@ -25,7 +27,7 @@ public class Util {
      * @param columnWidthDp largura do item do grid em dp
      * @return numero de colunas a serem usadas no GridLayoutManager
      */
-    public static int calculateNoOfColumns(Context context, float columnWidthDp) { // For example columnWidthdp=180
+    public static int calculateNoOfColumns(GridViewFragment context, float columnWidthDp) { // For example columnWidthdp=180
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         float screenWidthDp = displayMetrics.widthPixels;
         int noOfColumns = (int) (screenWidthDp / columnWidthDp + 0.5); // +0.5 for correct rounding to int.

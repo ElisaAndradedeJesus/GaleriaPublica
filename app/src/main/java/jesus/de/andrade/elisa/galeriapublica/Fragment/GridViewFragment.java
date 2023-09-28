@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.paging.PagingData;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -23,6 +22,7 @@ import jesus.de.andrade.elisa.galeriapublica.Auxiliares.ImageData;
 import jesus.de.andrade.elisa.galeriapublica.Auxiliares.ImageDataComparator;
 import jesus.de.andrade.elisa.galeriapublica.Auxiliares.MainViewModel;
 import jesus.de.andrade.elisa.galeriapublica.R;
+import jesus.de.andrade.elisa.galeriapublica.Util.Util;
 
 
 public class GridViewFragment extends Fragment {
@@ -57,7 +57,10 @@ public class GridViewFragment extends Fragment {
         });
         RecyclerView rvGallery = (RecyclerView) view.findViewById(R.id.rvGrid);
         rvGallery.setAdapter(gridAdapter);
-        rvGallery.setLayoutManager(new GridLayoutManager(getContext(), 3));
+        float itemWidth = getResources().getDimension(R.dimen.im_width);
+        Util Utils = null;
+        int numberOfColumns = Utils.calculateNoOfColumns(GridViewFragment.this,itemWidth);
+        rvGallery.setLayoutManager(new GridLayoutManager(getContext(), numberOfColumns));
     }
     private int NumberOfColumns(){
         return 0;
