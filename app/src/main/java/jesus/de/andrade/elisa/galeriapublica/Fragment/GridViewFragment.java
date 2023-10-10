@@ -62,7 +62,4 @@ public class GridViewFragment extends Fragment {
         int numberOfColumns = Utils.calculateNoOfColumns(GridViewFragment.this,itemWidth);
         rvGallery.setLayoutManager(new GridLayoutManager(getContext(), numberOfColumns));
     }
-    private int NumberOfColumns(){
-        return 0;
-    }
 }
